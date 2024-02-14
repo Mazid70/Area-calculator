@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Area calculator</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      .inter {
+        font-family: "inter", sans-serif;
+      }
+    </style>
+  </head>
+  <body class="inter">
+    <header
+      class="bg-[#1090D81A] w-[90%] mx-auto px-10 py-5 rounded-lg mt-12 flex justify-between items-center"
+    >
+      <div>
+        <h1 class="font-bold text-2xl lg:text-5xl">
+          Interactive <br />
+          <span class="font-medium text-xl lg:text-3xl text-[#11111199]"
+            >Geometry Genius</span
+          >
+        </h1>
+      </div>
+      <button class="py-2 px-9 bg-blue-500 text-white rounded-lg">Blog</button>
+    </header>
+    <main class="w-[90%] mx-auto mt-12 flex flex-col-reverse lg:flex-row gap-6">
+      <div class="grid grid-cols-1 lg:grid-cols-3 text-center gap-5 flex-1">
+        <!-- Triangle  -->
+        <div
+          class="border space-y-4 py-10 flex flex-col justify-center items-center rounded-lg hover:bg-pink-300"
+        >
+          <img src="images/triangle.png" alt="" />
+          <h2 class="font-bold text-2xl">Triangle</h2>
+          <h3 class="">Area (A) =0.5 x b x h</h3>
+          <div class="space-x-3 flex">
+            <input
+              placeholder="b"
+              type="number"
+              class="bg-[#F1F1F1] w-14 lg:w-24 pl-3"
+              id="triangle-base"
+            />
+            cm<input
+              placeholder="h"
+              type="number"
+              class="bg-[#F1F1F1] w-14 lg:w-24 pl-3"
+              id="triangle-height"
+            />
+            cm
+          </div>
+          <button
+            class="py-2 px-3 lg:px-32 bg-blue-500 text-white rounded-md"
+            onclick="triangleArea()"
+          >
+            Calculate
+          </button>
+        </div>
+        <!-- Rectangle -->
+        <div
+          class="border space-y-4 py-10 flex flex-col justify-center items-center rounded-lg hover:bg-red-300"
+        >
+          <img src="images/rectangle.png" alt="" />
+          <h2 class="font-bold text-2xl">Rectangle</h2>
+          <h3 class="">Area (A) =w x l</h3>
+          <div class="space-x-3 flex">
+            <input
+              placeholder="w"
+              type="number"
+              class="bg-[#F1F1F1] w-14 lg:w-24 pl-3"
+              id="rectangle-height"
+            />
+            cm<input
+              placeholder="l"
+              type="number"
+              class="bg-[#F1F1F1] w-14 lg:w-24 pl-3"
+              id="rectangle-width"
+            />
+            cm
+          </div>
+          <button
+            class="py-2 px-3 lg:px-32 bg-blue-500 text-white rounded-md"
+            onclick="rectangleArea()"
+          >
+            Calculate
+          </button>
+        </div>
+        <!-- Parallelogram  -->
+        <div
+          class="border space-y-4 py-10 flex flex-col justify-center items-center rounded-lg hover:bg-orange-300"
+        >
+          <img src="images/parallelogram.png" alt="" />
+          <h2 class="font-bold text-2xl">Parallelogram</h2>
+          <h3 class="">Area (A) =b x h</h3>
+          <div class="space-x-3 flex">
+            <input
+              placeholder="b"
+              type="number"
+              class="bg-[#F1F1F1] w-14 lg:w-24 pl-3"
+              id="parallelogram-height"
+            />
+            cm<input
+              placeholder="h"
+              type="number"
+              class="bg-[#F1F1F1] w-14 lg:w-24 pl-3"
+              id="parallelogram-width"
+            />
+            cm
+          </div>
+          <button
+            class="py-2 px-3 lg:px-32 bg-blue-500 text-white rounded-md"
+            onclick="parallelogramArea()"
+          >
+            Calculate
+          </button>
+        </div>
+        <!-- Rhombus  -->
+        <div
+          class="border space-y-4 py-10 flex flex-col justify-center items-center rounded-lg hover:bg-blue-300"
+        >
+          <img src="images/rhombus.png" alt="" />
+          <h2 class="font-bold text-2xl">Rhombus</h2>
+          <h3 class="">Area (A) =0.5 x d <sub>1</sub> x d <sub>2</sub></h3>
+          <div class="space-x-3 flex">
+            <input
+              placeholder="d1"
+              type="number"
+              class="bg-[#F1F1F1] w-14 lg:w-24 pl-3"
+              id="rhombus-diagonal1"
+            />
+            cm<input
+              placeholder="d2"
+              type="number"
+              class="bg-[#F1F1F1] w-14 lg:w-24 pl-3"
+              id="rhombus-diagonal2"
+            />
+            cm
+          </div>
+
+          <button
+            class="py-2 px-3 lg:px-32 bg-blue-500 text-white rounded-md"
+            onclick="rhombusArea()"
+          >
+            Calculate
+          </button>
+        </div>
+        <!-- Pentagon  -->
+        <div
+          class="border space-y-4 py-10 flex flex-col justify-center items-center rounded-lg hover:bg-green-300"
+        >
+          <img src="images/pentagon.png" alt="" />
+          <h2 class="font-bold text-2xl">Pentagon</h2>
+          <h3 class="">Area (A) =0.5 x p x b</h3>
+          <div class="space-x-3 flex">
+            <input
+              placeholder="p"
+              type="number"
+              class="bg-[#F1F1F1] w-14 lg:w-24 pl-3"
+              id="pentagon-perimeter"
+            />
+            cm<input
+              placeholder="b"
+              type="number"
+              class="bg-[#F1F1F1] w-14 lg:w-24 pl-3"
+              id="pentagon-base"
+            />
+            cm
+          </div>
+          <button
+            class="py-2 px-3 lg:px-32 bg-blue-500 text-white rounded-md"
+            onclick="pentagonArea()"
+          >
+            Calculate
+          </button>
+        </div>
+        <!-- Ellipse  -->
+        <div
+          class="border space-y-4 py-10 flex flex-col justify-center items-center rounded-lg hover:bg-fuchsia-300"
+        >
+          <img src="images/ellipse.png" alt="" />
+          <h2 class="font-bold text-2xl">Ellipse</h2>
+          <h3 class="">Area (A) =πab</h3>
+          <div class="space-x-3 flex">
+            <input
+              placeholder="a"
+              type="number"
+              class="bg-[#F1F1F1] w-14 lg:w-24 pl-3"
+              id="ellipse-a"
+            />
+            cm<input
+              placeholder="b"
+              type="number"
+              class="bg-[#F1F1F1] w-14 lg:w-24 pl-3"
+              id="ellipse-b"
+            />
+            cm
+          </div>
+          <button
+            class="py-2 px-3 lg:px-32 bg-blue-500 text-white rounded-md"
+            onclick="ellipseArea()"
+          >
+            Calculate
+          </button>
+        </div>
+      </div>
+      <!-- calculate value  -->
+
+      <div class="text-center rounded-lg lg:h-[460px] lg:w-[440px] border">
+        <h1 class="underline mt-4">Area Calculation</h1>
+        <div class="flex justify-center items-center mt-10">
+          <h1 class="lg:font-medium lg:text-xl" id="valueis"></h1>
+          <h2 class="lg:font-bold lg:text-2xl" id="area-result"></h2>
+          <span class="ml-2">cm <sup>2</sup></span>
+        </div>
+      </div>
+    </main>
+    <footer></footer>
+    <script src="script.js"></script>
+  </body>
+</html>
